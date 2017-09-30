@@ -1,0 +1,64 @@
+通俗的讲，左值就是能够出现在赋值符号左面的东西，而右值就是那些可以出现在赋值符号右面的东西了。
+
+那么这里a就是左值，b+25就是一个右值。左值和右值之间是不一定都能互换的，上面的这个例子就是不能互换的
+大家都能看出来这样写会不编译通过的，因为编译器无法判断b+100的内存地址，所以不能操作。
+
+左值必须应该是一个变量或者是表达式等，但是它的物理位置是可以确定的，而右值不一定,这也是它们两者之间的区别。【是作用域的差别？？？】
+
+
+
+关于左值是表达式的例子有数组，还有指针这些都可以
+看来左值更像是一个object。
+
+L-value中的L指的是Location，表示可寻址。The "l" in lvalue can be though of as location
+R-value中的R指的是Read，表示可读。The "r" in rvalue can be thought of as "read" value.   
+可寻位置变量 与 只读变量
+
+·右值 独立于其存储位置考虑的价值
+·左值 值指向的存储位置，潜在地允许被分配以新的值
+
+ a combination of one or more explicit values, constants, variables, operators, and functions that the programming language interprets (according to its particular rules of precedence and of association) and computes to produce ("to return", in a stateful environment) another value. This process, as for mathematical expressions, is called evaluation.
+不同的数据类型根据一些运算符以及表达式所构成的，描述编程的语言解释，并且返回一个数值。
+表达式返回的东西可以是一个简单的原始类型，可以是函数或者表达式，本身可以进行进一步的评估。
+
+可以取地址的就是左值。
+
+std::move  和std::forward的区别，
+左值可以看做是一个对象，然后右值可以看做是一个数值。左值向右值的转换可以看做是读出对象的值。
+std::move 
+allows you to treat any expression as though it represents a value
+std::forward 
+allows you to preserve whether an expression represented an object or a value
+
+那么这里的“对象” (object) 和 “值” (value) 是什么意思呢？任何一个有价值的 C++ 程序都是如此：a) 反复地操作各种类型的对象 b) 这些对象在运行时创建在明确的内存范围内 c) 这些对象内存储着值。 (Every useful C++ program revolves around the manipulation of objects, which are regions of memory created at runtime in which we store values.)只有特定的内存区域才可以被取地址。
+
+foo一个是有明确的地址，一个是他自己有明确的内存范围对象。
+拥有明确内存范围的对象——或者说是可以取地址。
+foo+5 一个是不可以取地址，另外一个是需要被存储到一个对象里面的数值。
+
+
+
+
+int a = 112, b = 1;
+int *d = &a;
+b = *d;
+d的值分为两种情况： 
+d左值（当d出现在赋值符号左侧时）：表达式 d 表示的是存储d这个指针变量本身的内存地址。 
+d右值：表达式 d 表示的是存储变量a的内存地址。
+
+*d的值也分为两种情况： 
+*d左值：表达式 *d 表示的是存储变量a的内存地址。 
+*d右值：表达式 *d 表示的是存储变量a的内存地址中的所存的值。
+
+左值表示的是可以存储结果值的内存地址。 
+右值表示的是结果值。
+
+值是不可以单独存在的，必须有一个地址，否则这个值的标识符就表示一个右值。
+
+右值没有一个变量存储数值的话，就毫无意义。
+
+ i和 -i 都是表达式 但一个是左值(i)，一个是右值(-i)
+
+-i是一个表达式，而不是一个变量，一个表达式是不可以作为左值的，因为没有办法执行这条语句：-i=-i+1（-i+1的值不能附给-i，因为没有-i这个变量存储空间） 
+
+

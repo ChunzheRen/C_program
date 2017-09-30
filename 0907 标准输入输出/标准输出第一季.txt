@@ -1,0 +1,27 @@
+C语言的标准输出有三个：puts printf 以及fput
+puts（字符串的地址）
+puts会在每一行的结束自动加上\n
+
+然后字符串的地址一个是字符数组的名字，一个是字符数组自己也可以被看做一个指针。str+3或者说&str[3]
+字符串常量被看做字符串的地址。另外存储着字符串的数组名字也可以看做是地址。
+&str1[5]表示的是str1字符串的第6个字符。puts函数从该元素的位置开始输出。
+str2+4指向的是pointer中的存储单元。puts从那里开始输出。
+
+所以说就是puts不可以接收字符数组char array所重定向得到的结果，因为它自己是没有\0的。
+
+fputs 一般的参数是stdout，但是不会再末尾添加\0，然后fgets的话，保留\n，但是gets会\n换成\0
+gets添加\0成为字符串 fgets不进行任何操作（保留\n已经是最大的操作了有木有）
+
+gets丢弃\n,puts在结尾添加\n
+fgets保留输入中的\n,fputs也不添加\n
+二者应该保持配套使用
+char string[81];
+while (gets(string)):
+	puts(string);
+
+会换行进行输出
+
+char string[81];
+while (fgets(string,81,stdin)):
+	fputs(string,81,stdout);
+printf(可以自己定义输入输出)

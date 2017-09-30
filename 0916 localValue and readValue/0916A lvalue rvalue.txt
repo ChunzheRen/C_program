@@ -1,0 +1,37 @@
+每一个C++的表达式要不就是左值要不就是右值，
+左值，可以脱离一个表达式存在的对象，可以把左值当做 an object with a name 
+rvalue a temporary value did not persist without the expression which use it .
+
+You can think of an lvalue as an object that has a name. All variables, including nonmodifiable (const) variables, are lvalues. An rvalue is a temporary value that does not persist beyond the expression that uses it.
+所有的变量，包括常量都是左值。【？？左值和右值在存储空间里面的差别？？？】
+int x =3+4
+x是左值，因为脱离表达式或者声明也一样存在。
+左值可以被赋值
+int i；
+i=7；
+左操作数必须是左值。
+7=i 错误
+j*4 =7
+【所以运算符其实是博大精深的一门学科。。。】
+【二元操作符左边必须是左值？？？】
+*p =i
+没有被指明的指针是左值。
+
+const int ci =7
+ci = 9 
+左值是有connst与非const之分的。
+
+((i < 3) ? i : j) = 7;
+条件操作符返回的是左值
+
+当操作符被重载的时候，可以使得j*4变成一个左值，然后的话，
+然后自定义类型的右值可以用成员函数进行改变。
+
+左值和右值的概念常见于对象的引用。
+
+您可以将一个左值引用视为对象的另一个名称。一个左值引用声明由可选的说明符列表和引用声明符组成。引用必须被初始化，不能被更改。
+object的地址可以转换为给定指针类型的任何对象也可以转换为类似的引用类型。例如，其地址可以转换为类型的任何对象char *也可以转换为类型char &。
+当&标识符前面有一个类型，例如int或char，标识符被声明为该类型的引用。当&标识符不在类型之前时，使用的是地址的运算符。
+
+引用也存在着左值引用和右值引用。
+type-id && cast-expression  

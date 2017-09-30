@@ -1,0 +1,22 @@
+？线性表的定义中 typedef是不是一个必须的？
+
+
+
+CT+TAB 切换两个垂直选项卡
+
+感觉线性表就4大基本操作啊：插入 删除 定位 初始化
+
+单链表：
+若struct node {}这样来定义结构体的话。在申请node 的变量时，需要这样写，struct node n;
+若用typedef，可以这样写，typedef struct node{}NODE; 。在申请变量时就可以这样写，NODE n;
+区别就在于使用时，是否可以省去struct这个关键字。
+
+若struct node {}这样来定义结构体的话。在申请node 的变量时，需要这样写，struct node n;
+若用typedef，可以这样写，typedef struct node{}NODE; 。在申请变量时就可以这样写，NODE n;
+·别名还是一个实例化的对象？——核心的问题
+C和C++的差别：
+
+VS批量注释：
+先用ct+k，再用ct+c
+变量是一个指针的时候就要用->来指向成员函数，其余的用.运算符。
+
